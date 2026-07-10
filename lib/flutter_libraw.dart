@@ -17,6 +17,6 @@
 /// files to Dart/Flutter applications.
 library;
 
-export 'src/libraw_bindings_generated.dart';
+export 'libraw_bindings_generated.dart';
 export 'src/libraw_util.dart';
 export 'src/libraw_loader.dart';

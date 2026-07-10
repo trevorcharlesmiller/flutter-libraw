@@ -20,6 +20,11 @@ description: |
 
   Regenerate bindings with `dart run ffigen --config ffigen.yaml`.
 output: 'lib/libraw_bindings_generated.dart'
+silence-enum-warning: true # <-- Bring this back to hush the severe warning
+enums:
+  as-int:
+    include:
+      - '.*'
 headers:
   entry-points:
     - 'src/libraw.h'

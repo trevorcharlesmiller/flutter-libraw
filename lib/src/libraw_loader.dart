@@ -36,12 +36,14 @@ String determineLibraryName() {
   throw UnsupportedError('Unknown platform: ${Platform.operatingSystem}');
 }
 
-/// Load the dynamic library from the given file. Returns true if successful,
-/// false otherwise
-Future<bool> loadLibRaw(File file) async {
+/// Load the dynamic library from the given file. If the given file is null,
+/// it will simply try to load the library with the name derived from a call to
+/// determineLibraryName(). Returns true if successful, false otherwise.
+Future<bool> loadLibRaw(File? file) async {
+  String path = file==null ? determineLibraryName() : file.path;
   try {
     flutterLibRawBindings =
-        FlutterLibRawBindings(DynamicLibrary.open(file.path));
+        FlutterLibRawBindings(DynamicLibrary.open(path));
     return true;
   } catch (err) {
     return false;

@@ -15,6 +15,8 @@
 import 'dart:ffi';
 import 'dart:typed_data';
 
+import 'package:ffi/ffi.dart';
+
 /// Convenience method to convert an int array to a Dart String.
 String arrayToString(Array<Uint8> arr) {
   final dartString = <int>[];
@@ -30,4 +32,9 @@ String arrayToString(Array<Uint8> arr) {
 /// know the length of the data and pass that in as a parameter.
 Uint8List pointerToUint8List(Pointer<Uint8> data, int length) {
   return data.asTypedList(length);
+}
+
+String pointerToString(Pointer<Uint8> pointer) {
+  if (pointer == nullptr) return '';
+  return pointer.cast<Utf8>().toDartString();
 }

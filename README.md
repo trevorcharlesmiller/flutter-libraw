@@ -1,5 +1,24 @@
 # Flutter LibRaw
 
+## Note
+The official Flutter LibRaw package on pub.dev has not been updated in a while. In the interim there 
+have been new versions of LibRaw released. This version of the Flutter LibRaw package supports 
+version LibRaw 0.22.1.
+
+I have created this copy of the code and updated the dependencies in the pubspec.yaml file to their 
+respective latest versions, included the lastest C header files from LibRaw in the src folder, added
+the latest LibRaw binary libraries in the libraw folder and finally generated the Flutter FFI 
+bindings using the latest headers.
+
+Bindings were generated using the following command on Fedora 44:
+
+
+```
+ffigen --config ffigen.yaml --compiler-opts "-I/usr/lib/gcc/x86_64-redhat-linux/16/include"
+```
+
+<hr>
+
 The Flutter LibRaw package aims to provide the ability to read camera RAW files to Dart/Flutter applications. 
 
 This package is a wrapper around the C/C++ [LibRaw](https://www.libraw.org/) library using [Dart FFI](https://dart.dev/interop/c-interop).
