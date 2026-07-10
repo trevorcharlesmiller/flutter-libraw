@@ -39,7 +39,7 @@ String determineLibraryName() {
 /// Load the dynamic library from the given file. If the given file is null,
 /// it will simply try to load the library with the name derived from a call to
 /// determineLibraryName(). Returns true if successful, false otherwise.
-Future<bool> loadLibRaw(File? file) async {
+Future<bool> loadLibRaw([File? file]) async {
   String path = file==null ? determineLibraryName() : file.path;
   try {
     flutterLibRawBindings =
